@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package nbparsexhtml;
+package xmlricevimento;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -28,10 +28,10 @@ public class NBValidateXHTML {
      * @param args the command line arguments
      */
     public static void main(String[] args)  {
-        List corsi = null;
+        List albo = null;
         Parser dom = new Parser();
         try {
-            corsi = dom.parseDocument("sportello.xml");
+            albo = dom.parseDocument("ricevimento.xml");
         } catch (ParserConfigurationException ex) {
             Logger.getLogger(NBValidateXHTML.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SAXException ex) {
@@ -41,9 +41,8 @@ public class NBValidateXHTML {
         }
 
         // iterazione della lista e visualizzazione degli oggetti
-        System.out.println("Numero dei corsi: " + corsi.size());
-        scriviFile(corsi);
-        Iterator iterator = corsi.iterator();
+        System.out.println("Numero dei docenti: " + albo.size());
+        Iterator iterator = albo.iterator();
         while (iterator.hasNext()) {
             System.out.println(iterator.next().toString());
         }
